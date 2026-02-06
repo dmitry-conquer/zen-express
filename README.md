@@ -11,8 +11,24 @@ Modern Vite starter kit with Tailwind CSS v4, Alpine.js, and TypeScript for rapi
 
 ## Quick Start
 
+### Recommended
+
 ```bash
-git clone https://github.com/dmitroconquer/zen-express.git
+npm create zen@latest
+```
+
+Select **Express** variant when prompted, then:
+
+```bash
+cd my-project
+npm install
+npm run dev
+```
+
+### Alternative (clone from GitHub)
+
+```bash
+git clone https://github.com/dmitry-conquer/zen-express.git
 cd zen-express
 npm install
 npm run dev
