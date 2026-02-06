@@ -1,0 +1,71 @@
+@import "tailwindcss";
+/* @plugin '@tailwindcss/typography'; */
+
+/*
+ * Content sources - where Tailwind scans for classes
+ */
+@source "../../pages/**/*.html";
+@source "../../components/**/*.html";
+@source "../../index.html";
+@source "../scripts/**/*.ts";
+
+/*
+ * Alpine.js x-cloak directive
+ * Hides elements until Alpine.js initializes
+ */
+[x-cloak] {
+  display: none !important;
+}
+
+/*
+ * Theme configuration using CSS variables
+ */
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #64748b;
+  --color-accent: #f59e0b;
+
+  /* Font families */
+  --font-base: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-accent: "Playfair Display", ui-serif, Georgia, serif;
+}
+
+/*
+ * Base layer - HTML element defaults
+ */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+/*
+ * Components layer - Reusable component styles
+ */
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-7xl px-4;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 focus-visible:outline-primary inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 focus-visible:outline-secondary inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-4 py-2 font-medium transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-700 dark:hover:bg-gray-800;
+  }
+}
+
+/*
+ * Utilities layer - Custom utility classes
+ */
+@layer utilities {
+}
