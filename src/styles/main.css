@@ -1,13 +1,13 @@
 @import "tailwindcss";
 /* @plugin '@tailwindcss/typography'; */
 
+@import "./components/modal.css";
+
 /*
  * Content sources - where Tailwind scans for classes
  */
 @source "../../pages/**/*.html";
 @source "../../components/**/*.html";
-@source "../../index.html";
-@source "../scripts/**/*.ts";
 
 /*
  * Alpine.js x-cloak directive
