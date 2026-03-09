@@ -1,15 +1,20 @@
+type ModalContext = {
+  isOpen: boolean;
+  $refs: { dialog: HTMLDialogElement };
+};
+
 export default function () {
   return {
     isOpen: false,
 
-    open() {
+    open(this: ModalContext) {
       this.isOpen = true;
-      (this.$refs.dialog as HTMLDialogElement).showModal();
+      this.$refs.dialog.showModal();
     },
 
-    close() {
+    close(this: ModalContext) {
       this.isOpen = false;
-      (this.$refs.dialog as HTMLDialogElement).close();
+      this.$refs.dialog.close();
     },
   };
 }
