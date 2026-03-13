@@ -85,7 +85,6 @@ const plugins = [
 ];
 
 export default defineConfig({
-  base: "./",
   css: {
     devSourcemap: true,
   },
