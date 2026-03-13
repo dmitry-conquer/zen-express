@@ -29,10 +29,13 @@ const buildConfig = {
   rollupOptions: {
     input: buildInput,
     output: {
-      entryFileNames: "assets/[name].js",
+      entryFileNames: "assets/js/[name].js",
       assetFileNames: ({ name }) => {
+        if (/\.(woff2?|ttf|eot)$/.test(name)) {
+          return "assets/fonts/[name][extname]";
+        }
         if (/\.css$/.test(name ?? "")) {
-          return "assets/style[extname]";
+          return "assets/css/style[extname]";
         }
         return "assets/[name][extname]";
       },
@@ -82,6 +85,7 @@ const plugins = [
 ];
 
 export default defineConfig({
+  base: "./",
   css: {
     devSourcemap: true,
   },

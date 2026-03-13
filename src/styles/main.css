@@ -24,7 +24,7 @@
   --color-accent: #f59e0b;
 
   /* Font families */
-  --font-base: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-base: "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-accent: "Playfair Display", ui-serif, Georgia, serif;
 }
 
@@ -50,4 +50,36 @@
  * Utilities layer - Custom utility classes
  */
 @layer utilities {
+}
+
+/*
+ * Fonts
+ */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/OpenSans-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/OpenSans-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2");
 }
