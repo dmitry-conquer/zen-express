@@ -35,6 +35,13 @@
   html {
     @apply scroll-smooth;
   }
+
+  br {
+    @apply max-md:hidden!;
+  }
+  .always-br br {
+    @apply max-md:block!;
+  }
 }
 
 /*
@@ -51,3 +58,11 @@
  */
 @layer utilities {
 }
+
+/* 
+* Taos animation library support
+*/
+@custom-variant taos (&.taos-init:where(:not(.taos-animate)));
+@source inline(
+  "!duration-[0ms] taos:opacity-0 !delay-[0ms] duration-700 taos:translate-y-full taos:translate-y-1/2 taos:translate-y-1/3 delay-100 delay-200 delay-300 delay-400 delay-500 delay-600"
+);
