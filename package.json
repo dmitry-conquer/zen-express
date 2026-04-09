@@ -2,6 +2,7 @@
   "name": "zen-express",
   "description": "Modern starter kit with Vite, Tailwind CSS v4, Alpine.js and TypeScript. WordPress theme starter template.",
   "author": "MediaComponents | Dmytro Frolov",
+  "packageManager": "pnpm@10.33.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/dmitroconquer/zen-express.git"
@@ -15,21 +16,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "alpinejs": "^3.15.9"
+    "alpinejs": "^3.15.11"
   },
   "devDependencies": {
-    "@eslint/js": "=10.0.1",
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
     "@types/alpinejs": "^3.13.11",
-    "eslint": "=10.1.0",
+    "eslint": "^10.2.0",
     "globals": "^17.4.0",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.2",
-    "typescript-eslint": "^8.58.0",
-    "vite": "^8.0.3",
+    "typescript-eslint": "^8.58.1",
+    "vite": "^8.0.8",
     "vite-plugin-handlebars": "^2.0.0"
   }
 }
