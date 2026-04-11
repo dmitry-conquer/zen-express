@@ -1,16 +1,6 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WP Starter Theme
- */
+<?php get_header(); ?>
 
-get_header();
-?>
-
-<main id="primary" class="site-main">
+<main id="main-content">
 
   <?php if (have_posts()): ?>
 
@@ -19,7 +9,7 @@ get_header();
     <?php
     while (have_posts()):
       the_post();
-      ?>
+    ?>
 
       <article>
         <?php the_title('<h2>', '</h2>'); ?>
@@ -27,7 +17,7 @@ get_header();
         <a href="<?php the_permalink(); ?>">Read more</a>
       </article>
 
-      <?php
+    <?php
     endwhile;
     ?>
 

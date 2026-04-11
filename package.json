@@ -1,7 +1,7 @@
 {
   "name": "zen-express",
   "description": "Modern starter kit with Vite, Tailwind CSS v4, Alpine.js and TypeScript. WordPress theme starter template.",
-  "author": "MediaComponents | Dmytro Frolov",
+  "author": "MediaComponents",
   "packageManager": "pnpm@10.33.0",
   "repository": {
     "type": "git",

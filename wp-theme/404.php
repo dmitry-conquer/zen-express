@@ -1,20 +1,10 @@
-<?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package WP Starter Theme
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<main id="main-content">
 
-<main id="primary" class="site-main">
-
-	<section>
-		<h1>Oops! That page can't be found.</h1>
-	</section>
+  <section>
+    <h1>Oops! That page can't be found.</h1>
+  </section>
 
 </main>
 

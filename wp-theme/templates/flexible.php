@@ -1,14 +1,13 @@
 <?php
+
 /**
  * Template Name: Flexible
- *
- * @package WP Starter Theme
  */
 
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="main-content">
   <?php if (have_rows('content')): ?>
     <?php while (have_rows('content')):
       the_row(); ?>
