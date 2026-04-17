@@ -9,6 +9,7 @@
   "uploadOnSave": true,
   "ignore": [
     "sftp.json",
+    "acf-json",
     ".vscode",
     "*.txt"
   ]
