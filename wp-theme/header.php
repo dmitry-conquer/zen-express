@@ -10,7 +10,7 @@
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
-  <div>
+  <div class="flex min-h-screen w-full flex-col overflow-clip">
     <a class="sr-only" href="#main-content">Skip to content</a>
 
     <?php get_template_part('template-parts/header', 'default'); ?>

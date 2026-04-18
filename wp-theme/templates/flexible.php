@@ -7,7 +7,7 @@
 get_header();
 ?>
 
-<main id="main-content">
+<main id="main-content" class="grow">
   <?php if (have_rows('content')): ?>
     <?php while (have_rows('content')):
       the_row(); ?>
