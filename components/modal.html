@@ -1,5 +1,5 @@
 <!-- TRIGGER BUTTON -->
-<button @click="$dispatch('open-popup')" aria-haspopup="dialog" type="button">Open Popup</button>
+<button @click="$dispatch('open-dialog')" aria-haspopup="dialog" type="button">Open dialog</button>
 
 <!-- DIALOG -->
 <div
@@ -9,7 +9,7 @@
   class="fixed inset-0 z-999"
   x-transition.opacity.duration.300ms
   @keydown.escape.window="open = false;"
-  @open-popup.window="open = true"
+  @open-dialog.window="open = true"
   x-show="open"
 >
   <div @click.self="open=false" class="flex h-screen w-full items-center justify-center bg-black/40 px-4">
@@ -30,9 +30,7 @@
     >
       <h2 id="contact-form-title" class="text-dark mb-6 text-center text-4xl leading-none font-bold sm:text-5xl">Contact Form</h2>
       <p class="text-gray mb-8 text-center leading-relaxed">Send us a message and our team will respond promptly.</p>
-      <div class="">
-        <script type="text/javascript" src="https://form.jotform.com/jsform/260543096925159"></script>
-      </div>
+      <div>[FORM HERE]</div>
       <button type="button" @click="open = false" aria-label="Close dialog" class="absolute top-4 right-4 size-6 cursor-pointer sm:top-8 sm:right-8">
         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none">
           <path
