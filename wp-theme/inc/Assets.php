@@ -20,11 +20,15 @@ class Assets {
 
   public static function enqueue_assets() {
     if (!is_admin()) {
+      wp_enqueue_script('apline-focus', 'https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.15.8/dist/cdn.min.js', [], null, true);
+      wp_enqueue_script('apline-collapse', 'https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.15.8/dist/cdn.min.js', [], null, true);
+      wp_enqueue_script('alpine-core', 'https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js', ['apline-focus', 'apline-collapse'], null, true);
+      
       wp_enqueue_style('style-css', WP_STARTER_THEME_URI . '/assets/css/style.css', [], filemtime(WP_STARTER_THEME_DIR . '/assets/css/style.css') ?: ASSETS_VERSION);
       wp_enqueue_script('script-js', WP_STARTER_THEME_URI . '/assets/js/script.js', [], filemtime(WP_STARTER_THEME_DIR . '/assets/js/script.js') ?: ASSETS_VERSION, true);
     }
   }
-  
+
   public static function dequeue_style() {
     wp_dequeue_style('wp-block-library');
     wp_dequeue_style('wp-block-library-theme');

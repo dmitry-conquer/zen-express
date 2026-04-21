@@ -8,7 +8,6 @@ if (!defined('ABSPATH')) {
 
 final class Utils {
   public static function register() {
-    add_filter('excerpt_length', [self::class, 'excerpt_length_fn']);
   }
 
   public static function bg_style($image_id, $size = 'full') {
