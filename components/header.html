@@ -1,19 +1,300 @@
 <div x-data="{ open: false }" @keydown.escape.window="open = false">
-  <header class="sticky top-0 z-30 flex w-full items-center justify-between bg-white">
-    <a href="#" aria-label="Back to home"> Logo </a>
+  <header class="sticky top-0 z-30 flex w-full items-center justify-between gap-8 border-b border-stone-100 bg-white px-4 py-3 lg:px-8">
+    <a href="#" aria-label="Back to home" class="shrink-0"> Logo </a>
 
-    <button
-      type="button"
-      class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl text-stone-700 transition-colors hover:bg-stone-100 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
-      :aria-expanded="open.toString()"
-      aria-controls="mobile-menu"
-      aria-label="Open mobile menu"
-      @click="open = true"
-    >
-      <svg aria-hidden="true" class="size-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" d="M4 17.27v-1h16v1zm0-4.77v-1h16v1zm0-4.77v-1h16v1z" />
-      </svg>
-    </button>
+    <!-- ========== DESKTOP NAV ========== -->
+    <nav class="hidden lg:flex" aria-label="Main navigation">
+      <ul class="flex items-center" role="list">
+        <!-- Home -->
+        <li>
+          <a
+            href="#"
+            aria-current="page"
+            class="flex items-center px-4 py-2 text-sm font-medium text-stone-900 transition-colors hover:text-stone-600 focus-visible:rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
+          >
+            Home
+          </a>
+        </li>
+
+        <!-- Services — level 2 dropdown with level 3 flyout -->
+        <li
+          x-data="{ open: false }"
+          class="relative"
+          @mouseenter="open = true"
+          @mouseleave="open = false"
+          @focusin="open = true"
+          @focusout="$event.currentTarget.contains($event.relatedTarget) || (open = false)"
+          @keydown.escape="open = false"
+        >
+          <a
+            href="#"
+            class="flex items-center gap-1.5 px-4 py-2 text-sm text-stone-600 transition-colors hover:text-stone-900 focus-visible:rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
+            :aria-expanded="open.toString()"
+            aria-haspopup="true"
+          >
+            Services
+            <svg
+              class="h-4 w-4 shrink-0 text-stone-400 transition-transform duration-200"
+              :style="open ? 'transform: rotate(180deg)' : ''"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+
+          <!-- Level 2 panel -->
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-0 z-50 pt-2"
+          >
+            <ul role="list" class="min-w-52 rounded-xl bg-white py-1.5 shadow-xl ring-1 shadow-stone-900/8 ring-stone-100">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  Web Development
+                </a>
+              </li>
+
+              <!-- Design Services — level 3 flyout -->
+              <li
+                x-data="{ subOpen: false }"
+                class="relative"
+                @mouseenter="subOpen = true"
+                @mouseleave="subOpen = false"
+                @focusin="subOpen = true"
+                @focusout="$event.currentTarget.contains($event.relatedTarget) || (subOpen = false)"
+                @keydown.escape.stop="subOpen = false"
+              >
+                <a
+                  href="#"
+                  class="flex items-center justify-between gap-6 px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                  :aria-expanded="subOpen.toString()"
+                  aria-haspopup="true"
+                >
+                  Design Services
+                  <svg
+                    class="h-4 w-4 shrink-0 text-stone-400 transition-transform duration-150"
+                    :style="subOpen ? 'transform: translateX(2px)' : ''"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8.22 5.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 010-1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+
+                <!-- Level 3 flyout panel — no overflow-hidden on parent so it's not clipped -->
+                <div
+                  x-show="subOpen"
+                  x-transition:enter="transition ease-out duration-100"
+                  x-transition:enter-start="opacity-0 translate-x-2"
+                  x-transition:enter-end="opacity-100 translate-x-0"
+                  x-transition:leave="transition ease-in duration-75"
+                  x-transition:leave-start="opacity-100 translate-x-0"
+                  x-transition:leave-end="opacity-0 translate-x-2"
+                  class="absolute top-0 left-full z-50 pl-2"
+                >
+                  <ul role="list" class="min-w-48 rounded-xl bg-white py-1.5 shadow-xl ring-1 shadow-stone-900/8 ring-stone-100">
+                    <li>
+                      <a
+                        href="#"
+                        class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                      >
+                        UI/UX Design
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                      >
+                        Branding
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                      >
+                        Motion Design
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                      >
+                        Graphic Design
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  SEO &amp; Marketing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  Consulting
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Works — level 2 dropdown -->
+        <li
+          x-data="{ open: false }"
+          class="relative"
+          @mouseenter="open = true"
+          @mouseleave="open = false"
+          @focusin="open = true"
+          @focusout="$event.currentTarget.contains($event.relatedTarget) || (open = false)"
+          @keydown.escape="open = false"
+        >
+          <a
+            href="#"
+            class="flex items-center gap-1.5 px-4 py-2 text-sm text-stone-600 transition-colors hover:text-stone-900 focus-visible:rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
+            :aria-expanded="open.toString()"
+            aria-haspopup="true"
+          >
+            Works
+            <svg
+              class="h-4 w-4 shrink-0 text-stone-400 transition-transform duration-200"
+              :style="open ? 'transform: rotate(180deg)' : ''"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+
+          <!-- Level 2 panel -->
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-150"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-0 z-50 pt-2"
+          >
+            <ul role="list" class="min-w-44 rounded-xl bg-white py-1.5 shadow-xl ring-1 shadow-stone-900/8 ring-stone-100">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  All Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center px-4 py-2.5 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  Case Studies
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  aria-current="page"
+                  class="relative flex items-center px-4 py-2.5 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-50 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  <span class="absolute top-1/2 left-0 h-4 w-0.5 -translate-y-1/2 rounded-r bg-amber-500" aria-hidden="true"></span>
+                  Awards
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- About -->
+        <li>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm text-stone-600 transition-colors hover:text-stone-900 focus-visible:rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
+          >
+            About
+          </a>
+        </li>
+
+        <!-- Blog -->
+        <li>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm text-stone-600 transition-colors hover:text-stone-900 focus-visible:rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
+          >
+            Blog
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- ========== END DESKTOP NAV ========== -->
+
+    <!-- Right: desktop CTA + mobile burger -->
+    <div class="flex shrink-0 items-center gap-3">
+      <a
+        href="#"
+        class="hidden items-center gap-1.5 rounded-xl bg-stone-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-stone-800 focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:outline-none lg:flex"
+      >
+        Discuss a Project
+        <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path
+            fill-rule="evenodd"
+            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+
+      <button
+        type="button"
+        class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl text-stone-700 transition-colors hover:bg-stone-100 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none lg:hidden"
+        :aria-expanded="open.toString()"
+        aria-controls="mobile-menu"
+        aria-label="Open mobile menu"
+        @click="open = true"
+      >
+        <svg aria-hidden="true" class="size-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M4 17.27v-1h16v1zm0-4.77v-1h16v1zm0-4.77v-1h16v1z" />
+        </svg>
+      </button>
+    </div>
   </header>
 
   <div
