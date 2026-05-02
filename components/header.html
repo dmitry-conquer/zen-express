@@ -2,10 +2,8 @@
   <header class="sticky top-0 z-30 flex w-full items-center justify-between gap-8 border-b border-stone-100 bg-white px-4 py-3 lg:px-8">
     <a href="#" aria-label="Back to home" class="shrink-0"> Logo </a>
 
-    <!-- ========== DESKTOP NAV ========== -->
     <nav class="hidden lg:flex" aria-label="Main navigation">
       <ul class="flex items-center" role="list">
-        <!-- Home -->
         <li>
           <a
             href="#"
@@ -16,7 +14,6 @@
           </a>
         </li>
 
-        <!-- Services — level 2 dropdown with level 3 flyout -->
         <li
           x-data="{ open: false }"
           class="relative"
@@ -48,7 +45,6 @@
             </svg>
           </a>
 
-          <!-- Level 2 panel -->
           <div
             x-show="open"
             x-transition:enter="transition ease-out duration-150"
@@ -69,7 +65,6 @@
                 </a>
               </li>
 
-              <!-- Design Services — level 3 flyout -->
               <li
                 x-data="{ subOpen: false }"
                 class="relative"
@@ -101,7 +96,6 @@
                   </svg>
                 </a>
 
-                <!-- Level 3 flyout panel — no overflow-hidden on parent so it's not clipped -->
                 <div
                   x-show="subOpen"
                   x-transition:enter="transition ease-out duration-100"
@@ -169,7 +163,6 @@
           </div>
         </li>
 
-        <!-- Works — level 2 dropdown -->
         <li
           x-data="{ open: false }"
           class="relative"
@@ -201,7 +194,6 @@
             </svg>
           </a>
 
-          <!-- Level 2 panel -->
           <div
             x-show="open"
             x-transition:enter="transition ease-out duration-150"
@@ -243,7 +235,6 @@
           </div>
         </li>
 
-        <!-- About -->
         <li>
           <a
             href="#"
@@ -253,7 +244,6 @@
           </a>
         </li>
 
-        <!-- Blog -->
         <li>
           <a
             href="#"
@@ -264,9 +254,7 @@
         </li>
       </ul>
     </nav>
-    <!-- ========== END DESKTOP NAV ========== -->
 
-    <!-- Right: desktop CTA + mobile burger -->
     <div class="flex shrink-0 items-center gap-3">
       <a
         href="#"

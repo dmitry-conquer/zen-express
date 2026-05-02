@@ -3,7 +3,7 @@
   x-data="{show: false}"
   @scroll.window.throttle.100ms="show = window.scrollY > 800"
   @click="window.lenis?.scrollTo(0, {duration: 1.5})"
-  class="fixed bottom-0 left-1/2 z-100 -translate-x-1/2 translate-y-0 cursor-pointer rounded-t-lg bg-red-500 px-4 py-2 pb-1.5 transition-all duration-400"
+  class="fixed bottom-0 left-1/2 z-100 -translate-x-1/2 translate-y-0 cursor-pointer rounded-t-lg bg-red-500 px-4 py-2 pb-1.5 transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-red-500"
   type="button"
   aria-label="Back to top"
   x-cloak

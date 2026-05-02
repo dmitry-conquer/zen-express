@@ -62,4 +62,4 @@
 * Taos animation library support
 */
 @custom-variant taos (&.taos-init:where(:not(.taos-animate)));
-@source inline("!duration-[0ms] taos:opacity-0 !delay-[0ms] duration-700 taos:translate-y-15 delay-100 delay-200 delay-300 delay-400 delay-500");
+@source inline("!duration-[0ms] !delay-[0ms] taos:opacity-0 duration-700 taos:translate-y-15 delay-100 delay-200 delay-300 delay-400 delay-500");
