@@ -329,29 +329,35 @@
           </a>
         </li>
 
-        <li
-          class="flex flex-wrap items-center justify-between border-b border-stone-100 transition-colors hover:bg-stone-50"
-          x-data="{ isOpen: false }"
-          :aria-expanded="isOpen.toString()"
-          @click="isOpen = !isOpen"
-        >
-          <a href="#" class="px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none" @click.stop>
-            Services
-          </a>
-          <svg
-            class="mr-5 h-4 w-4 shrink-0 text-stone-400 transition-transform duration-200"
-            :style="isOpen ? 'transform: rotate(180deg)' : ''"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <ul class="w-full border-t border-stone-100 bg-stone-50" x-show="isOpen" x-collapse>
+        <li class="border-b border-stone-100" x-data="{ isOpen: false }">
+          <div class="flex items-center justify-between transition-colors hover:bg-stone-50">
+            <a href="#" class="flex min-w-0 flex-1 items-center px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset">
+              Services
+            </a>
+            <button
+              type="button"
+              class="flex h-11 w-11 shrink-0 items-center justify-center text-stone-400 transition-colors hover:text-stone-700 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+              :aria-expanded="isOpen.toString()"
+              aria-controls="mobile-submenu-services"
+              aria-label="Toggle Services submenu"
+              @click="isOpen = !isOpen"
+            >
+              <svg
+                class="h-4 w-4 transition-transform duration-200"
+                :style="isOpen ? 'transform: rotate(180deg)' : ''"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <ul id="mobile-submenu-services" class="w-full border-t border-stone-100 bg-stone-50" x-show="isOpen" x-collapse>
             <li>
               <a
                 href="#"
@@ -383,29 +389,35 @@
           </ul>
         </li>
 
-        <li
-          class="flex flex-wrap items-center justify-between border-b border-stone-100 transition-colors hover:bg-stone-50"
-          x-data="{ isOpen: true }"
-          :aria-expanded="isOpen.toString()"
-          @click="isOpen = !isOpen"
-        >
-          <a href="#" class="px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none" @click.stop>
-            Works
-          </a>
-          <svg
-            class="mr-5 h-4 w-4 shrink-0 text-stone-400 transition-transform duration-200"
-            :style="isOpen ? 'transform: rotate(180deg)' : ''"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <ul class="w-full border-t border-stone-100 bg-stone-50" x-show="isOpen" x-collapse>
+        <li class="border-b border-stone-100" x-data="{ isOpen: true }">
+          <div class="flex items-center justify-between transition-colors hover:bg-stone-50">
+            <a href="#" class="flex min-w-0 flex-1 items-center px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset">
+              Works
+            </a>
+            <button
+              type="button"
+              class="flex h-11 w-11 shrink-0 items-center justify-center text-stone-400 transition-colors hover:text-stone-700 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+              :aria-expanded="isOpen.toString()"
+              aria-controls="mobile-submenu-works"
+              aria-label="Toggle Works submenu"
+              @click="isOpen = !isOpen"
+            >
+              <svg
+                class="h-4 w-4 transition-transform duration-200"
+                :style="isOpen ? 'transform: rotate(180deg)' : ''"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <ul id="mobile-submenu-works" class="w-full border-t border-stone-100 bg-stone-50" x-show="isOpen" x-collapse>
             <li>
               <a
                 href="#"
