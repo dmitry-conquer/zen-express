@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WP Starter Theme functions and definitions
  *
@@ -9,14 +10,10 @@
  * - Add new functionality to existing classes in /inc/
  * - Create new classes in /inc/ for new features
  * - Use the autoloader system for proper class loading
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package WP_Starter_Theme
  */
 
 if (!defined('ABSPATH')) {
-	exit;
+  exit;
 }
 
 // Define theme constants

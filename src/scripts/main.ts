@@ -1,6 +1,6 @@
 import "../styles/main.css";
 import "taos"; // Taos — utility-first CSS animation library (Tailwind-compatible enter/leave transitions)
-import Lenis from "lenis"; // Lenis — smooth scroll library
+import Lenis from "lenis";
 
 // Alpine.js handles all interactivity in this project.
 // Loaded via CDN in pages/*.html to keep this bundle lean.

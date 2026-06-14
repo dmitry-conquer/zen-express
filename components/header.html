@@ -331,7 +331,10 @@
 
         <li class="border-b border-stone-100" x-data="{ isOpen: false }">
           <div class="flex items-center justify-between transition-colors hover:bg-stone-50">
-            <a href="#" class="flex min-w-0 flex-1 items-center px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset">
+            <a
+              href="#"
+              class="flex min-w-0 flex-1 items-center px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+            >
               Services
             </a>
             <button
@@ -342,13 +345,7 @@
               aria-label="Toggle Services submenu"
               @click="isOpen = !isOpen"
             >
-              <svg
-                class="h-4 w-4 transition-transform duration-200"
-                :style="isOpen ? 'transform: rotate(180deg)' : ''"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
+              <svg class="h-4 w-4 transition-transform duration-200" :style="isOpen ? 'transform: rotate(180deg)' : ''" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path
                   fill-rule="evenodd"
                   d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -391,7 +388,10 @@
 
         <li class="border-b border-stone-100" x-data="{ isOpen: true }">
           <div class="flex items-center justify-between transition-colors hover:bg-stone-50">
-            <a href="#" class="flex min-w-0 flex-1 items-center px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset">
+            <a
+              href="#"
+              class="flex min-w-0 flex-1 items-center px-5 py-3 text-sm text-stone-600 hover:text-stone-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
+            >
               Works
             </a>
             <button
@@ -402,13 +402,7 @@
               aria-label="Toggle Works submenu"
               @click="isOpen = !isOpen"
             >
-              <svg
-                class="h-4 w-4 transition-transform duration-200"
-                :style="isOpen ? 'transform: rotate(180deg)' : ''"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
+              <svg class="h-4 w-4 transition-transform duration-200" :style="isOpen ? 'transform: rotate(180deg)' : ''" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path
                   fill-rule="evenodd"
                   d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
