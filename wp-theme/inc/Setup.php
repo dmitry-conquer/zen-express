@@ -8,7 +8,6 @@ if (!defined('ABSPATH')) {
 
 final class Setup {
   public static function register() {
-    add_action('after_setup_theme', [self::class, 'register_menus']);
     add_action('after_setup_theme', [self::class, 'setup_theme']);
     add_action('wp_enqueue_scripts', [self::class, 'remove_block_css']);
     add_action('login_head', [self::class, 'custom_login_styles']);
@@ -16,14 +15,6 @@ final class Setup {
     add_action('login_headertext', [self::class, 'custom_login_logo_url_title']);
     add_filter('wp_img_tag_add_auto_sizes', '__return_false');
     self::disable_comments();
-  }
-
-  public static function register_menus() {
-    register_nav_menus([
-      'header_menu' => __('Header menu'),
-      'header_mobile_menu' => __('Header mobile menu'),
-      'footer_menu' => __('Footer menu'),
-    ]);
   }
 
   public static function remove_block_css() {
@@ -42,12 +33,6 @@ final class Setup {
       'flex-height' => true,
       'flex-width' => true,
     ]);
-  }
-
-  public static function allow_custom_mime_types() {
-    $mimes['woff'] = 'font/woff';
-    $mimes['woff2'] = 'font/woff2';
-    return $mimes;
   }
 
   public static function custom_login_styles() {

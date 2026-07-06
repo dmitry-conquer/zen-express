@@ -3,7 +3,7 @@
 get_header();
 ?>
 
-<main>
+<main id="main-content">
 
   <?php
   while (have_posts()):

@@ -23,10 +23,16 @@ class Assets {
       wp_enqueue_script('apline-focus', 'https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.15.8/dist/cdn.min.js', [], null, true);
       wp_enqueue_script('apline-collapse', 'https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.15.8/dist/cdn.min.js', [], null, true);
       wp_enqueue_script('alpine-core', 'https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js', ['apline-focus', 'apline-collapse'], null, true);
-      
-      wp_enqueue_style('style-css', WP_STARTER_THEME_URI . '/assets/css/style.css', [], filemtime(WP_STARTER_THEME_DIR . '/assets/css/style.css') ?: ASSETS_VERSION);
-      wp_enqueue_script('script-js', WP_STARTER_THEME_URI . '/assets/js/script.js', [], filemtime(WP_STARTER_THEME_DIR . '/assets/js/script.js') ?: ASSETS_VERSION, true);
+
+      wp_enqueue_style('style-css', WP_STARTER_THEME_URI . '/assets/css/style.css', [], self::asset_version('/assets/css/style.css'));
+      wp_enqueue_script('script-js', WP_STARTER_THEME_URI . '/assets/js/script.js', [], self::asset_version('/assets/js/script.js'), true);
     }
+  }
+
+  private static function asset_version($relative_path) {
+    $path = WP_STARTER_THEME_DIR . $relative_path;
+
+    return file_exists($path) ? filemtime($path) : ASSETS_VERSION;
   }
 
   public static function dequeue_style() {
