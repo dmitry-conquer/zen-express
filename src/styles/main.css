@@ -33,11 +33,6 @@
  * Base layer - HTML element defaults
  */
 @layer base {
-  html {
-    @apply scroll-smooth;
-    scrollbar-gutter: stable;
-  }
-
   br {
     @apply max-md:hidden!;
   }
