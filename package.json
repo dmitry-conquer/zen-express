@@ -1,10 +1,10 @@
 {
-  "name": "zen-express",
+  "name": "express-starter",
   "description": "Modern starter kit with Vite, Tailwind CSS v4, Alpine.js and TypeScript. WordPress theme starter template.",
   "packageManager": "pnpm@11.10.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dmitroconquer/zen-express.git"
+    "url": "https://github.com/dmitroconquer/express-starter.git"
   },
   "private": true,
   "type": "module",

@@ -1,4 +1,4 @@
-# Zen Express
+# Express Starter
 
 A modern frontend starter for building multi-page websites and WordPress themes. It combines Vite, Tailwind CSS, Handlebars, Alpine.js, and TypeScript in a lightweight development setup.
 
