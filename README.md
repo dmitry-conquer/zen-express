@@ -8,7 +8,7 @@ A modern frontend starter for building multi-page websites and WordPress themes.
 - Tailwind CSS v4 with a CSS-first theme configuration
 - Reusable Handlebars components with automatic live reload
 - Multi-page architecture with automatic page discovery
-- Alpine.js components and plugins loaded from a CDN
+- Alpine.js components and plugins bundled through module imports
 - Smooth scrolling with Lenis
 - Utility-based animations with TAOS
 - TypeScript, ESLint, and Prettier configuration
